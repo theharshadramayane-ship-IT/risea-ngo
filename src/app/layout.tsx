@@ -1,9 +1,12 @@
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import type { Metadata } from "next";
-import { Inter, Source_Serif_4 } from "next/font/google"; // <--- Yahan change kiya
+import { Inter, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const sourceSerif = Source_Serif_4({ subsets: ["latin"], variable: "--font-source-serif" }); // <--- Yeh naya add kiya
+// We use the variable names that match globals.css
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const sourceSerif = Source_Serif_4({ subsets: ["latin"], variable: "--font-serif" });
 
 export const metadata: Metadata = {
   title: "Risea | Making a Difference",
@@ -18,7 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${sourceSerif.variable} antialiased`}>
-        {children}
+        <Header />
+        <main className="pt-20">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
